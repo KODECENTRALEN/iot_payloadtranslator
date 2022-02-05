@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <RootNamespace>PayloadTranslator</RootNamespace>
-    <AssemblyName>PayloadTranslator</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>$(AssemblyName)</Authors>
+    <Authors>IoT Norden</Authors>
     <Company>IoT Norden</Company>
-    <Product>PayloadTranslator</Product>
+    <Product>IoT Payload Translator</Product>
     <Description>IoT toolkit for payload translation</Description>
     <PackageProjectUrl>https://github.com/iotnorden/iot_payloadtranslator</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
     <Description>Tool for translating device payloads.</Description>
-    <Version>$(VersionPrefix)</Version>
   </PropertyGroup>
 
   <ItemGroup>
