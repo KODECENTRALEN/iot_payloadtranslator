@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="Bluefragments.Utilities" Version="5.0.100" />
-    <PackageReference Include="IotNorden.Core" Version="1.0.0" />
+    <PackageReference Include="IotNorden.Core" Version="1.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   
