@@ -10,6 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IotNorden.Iot.Payloadtranslator", "src\PayloadTranslator\IotNorden.Iot.Payloadtranslator.csproj", "{DD409200-4139-4DA6-8FA0-2ABB033B587A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{A5BD1200-3B3D-4C56-92FE-094794038A7A}"
+	ProjectSection(SolutionItems) = preProject
+		pipelines\payloadtranslator.yml = pipelines\payloadtranslator.yml
+		pipelines\payloadtranslator_package.yml = pipelines\payloadtranslator_package.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5BD1200-3B3D-4C56-92FE-094794038A7A} = {A0D53B97-5135-4FA3-92F7-A6BBE6B602FD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A6B810B-3853-4D7E-B1D7-6ED66D03B347}
