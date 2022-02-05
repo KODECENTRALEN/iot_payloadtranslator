@@ -1,0 +1,70 @@
+trigger: none
+
+pool:
+  vmImage: 'windows-latest'
+
+name: 'Set dynamically from build task'
+
+variables:
+  solution: '**/IotNorden.Iot.Core.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  version.MajorMinor: '1.1'
+  version.Revision: $[counter(variables['version.MajorMinor'], 0)]
+  versionNumber: '$(version.MajorMinor).$(version.Revision)'
+
+steps:
+
+- task: UseDotNet@2
+  displayName: 'Use .NET 6 sdk'
+  inputs:
+    packageType: 'sdk'
+    version: '6.0.x'
+    includePreviewVersions: true
+    performMultiLevelLookup: true
+
+- task: PowerShell@2
+  displayName: Set the name of the build
+  inputs:
+    targetType: 'inline'
+    script: |
+      [string] $buildName = "$(versionNumber)_$(Build.SourceBranchName)"
+      Write-Host "Setting the name of the build to '$buildName'."
+      Write-Host "##vso[build.updatebuildnumber]$buildName"
+
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '$(solution)'
+
+- task: VersionDotNetCoreAssemblies@2
+  inputs:
+    Path: '$(Build.SourcesDirectory)'
+    VersionNumber: '$(Build.BuildNumber)'
+    Injectversion: true
+    VersionRegex: '\d+\.\d+\.\d+\.\d+'
+    OutputVersion: 'OutputedVersion'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '$(solution)'
+    arguments: '--configuration $(buildConfiguration)'
+    modifyOutputPath: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'pack'
+  inputs:
+    command: 'pack'
+    packagesToPack: '$(solution)'
+    versioningScheme: byBuildNumber
+    versionEnvVar: $(Build.BuildNumber)
+
+- task: NuGetCommand@2
+  displayName: 'push'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  inputs:
+    command: 'push'
+    nuGetFeedType: external
+    publishFeedCredentials: 'nuget_iotnorden'

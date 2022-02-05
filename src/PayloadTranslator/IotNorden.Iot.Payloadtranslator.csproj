@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>PayloadTranslator</RootNamespace>
+    <AssemblyName>PayloadTranslator</AssemblyName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>$(AssemblyName)</Authors>
+    <Company>IoT Norden</Company>
+    <Product>PayloadTranslator</Product>
+    <Description>IoT toolkit for payload translation</Description>
+    <PackageProjectUrl>https://github.com/iotnorden/iot_payloadtranslator</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <Description>Tool for translating device payloads.</Description>
+    <Version>$(VersionPrefix)</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\resources\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bluefragments.Utilities" Version="5.0.100" />
+    <PackageReference Include="IotNorden.Core" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <PackageId>IotNorden.PayloadTranslator</PackageId>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RepositoryUrl>https://github.com/iotnorden/iot_payloadtranslator</RepositoryUrl>
+  </PropertyGroup>
+  
+</Project>
