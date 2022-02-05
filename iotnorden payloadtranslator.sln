@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0D53B97-5135-4FA3-92F7-A6BBE6B602FD}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IotNorden.Iot.Payloadtranslator", "src\PayloadTranslator\IotNorden.Iot.Payloadtranslator.csproj", "{DD409200-4139-4DA6-8FA0-2ABB033B587A}"
