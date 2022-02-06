@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Newtonsoft.Json;
 using PayloadTranslator.Attributes;
 using PayloadTranslator.Entities;
 using PayloadTranslator.Handlers;
@@ -21,7 +20,7 @@ public static class DeviceHelper
                 if (attribute is not null)
                 {
                     var possibleNames = attribute.PossibleNames?.Split(';');
-                    if(possibleNames == null || possibleNames.Any() == false)
+                    if (possibleNames == null || possibleNames.Any() == false)
                     {
                         possibleNames = new string[] { attribute.DeviceType.ToString() };
                     }
@@ -49,32 +48,23 @@ public static class DeviceHelper
 
     public static PayloadRequest DecodePayloadMessage(dynamic payload)
     {
+        var content = DynamicInspector.GetDynamicValue<dynamic>(payload, PropertyNames.ContentProperties);
+        if (content != null) payload = content;
+
         string deviceId = DynamicInspector.GetDynamicValue<string>(payload, PropertyNames.DeviceIdProperties);
         string deviceType = DynamicInspector.GetDynamicValue<string>(payload, PropertyNames.DeviceTypeProperties);
         string data = DynamicInspector.GetDynamicValue<string>(payload, PropertyNames.DataProperties);
         long time = DynamicInspector.GetDynamicValue<long>(payload, PropertyNames.TimeProperties);
         int battery = DynamicInspector.GetDynamicValue<int>(payload, PropertyNames.BatteryProperties);
 
-        var rawPayload = payload.payload != null ? JsonConvert.DeserializeObject<dynamic>(payload.payload?.ToString()) : null;
-
-        //Enum.TryParse(deviceType, out DeviceTypes convertedDeviceType);
-
-        var response = new PayloadRequest
+        return new PayloadRequest
         {
             DeviceType = deviceType,
             DeviceId = deviceId,
             Data = data,
             Battery = battery,
             Time = time,
-            Payload = rawPayload,
         };
-
-        return response;
-    }
-
-    public static string GetDeviceId(dynamic payload)
-    {
-        return DynamicInspector.GetDynamicValue<string>(payload, PropertyNames.DeviceIdProperties);
     }
 
     public static IEnumerable<DeviceAttributeContainer> GetTypesWithDeviceAttributes()
@@ -94,17 +84,6 @@ public static class DeviceHelper
             };
 
         return typesWithMyAttribute;
-    }
-
-    private static IEnumerable<Type> GetTypesWithHelpAttribute(Assembly assembly)
-    {
-        foreach (Type type in assembly.GetTypes())
-        {
-            if (type.GetCustomAttributes(typeof(SensorAttribute), true).Length > 0)
-            {
-                yield return type;
-            }
-        }
     }
 }
 

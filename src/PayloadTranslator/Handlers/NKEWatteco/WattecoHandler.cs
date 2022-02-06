@@ -7,7 +7,7 @@ using Data.Enums;
 
 namespace PayloadTranslator.Handlers.NKEWatteco
 {
-    [Sensor(DeviceTypes.SMARTPLUG)]
+    [Sensor(DeviceTypes.SMARTPLUG, "SMARTPLUG;INTENSO")]
     public class WattecoHandler : Handler, IHandler
     {
         public static readonly string[] SupportedDeviceTypeNames = { "SMARTPLUG", "INTENSO" };
@@ -19,23 +19,23 @@ namespace PayloadTranslator.Handlers.NKEWatteco
             try
             {
                 var bytes = HexHelper.HexToBytes(request.Data);
-                var result = Decode(bytes, (int)request.Payload.port);
+                //var result = Decode(bytes, (int)request.Payload.port); // TODO
 
-                if (result != null)
-                {
-                    var powerOn = result.Data == 0 ? 0 : 1;
-                    response.Measurements.Add(MeasumrentType.power_on.ToString(), powerOn);
-                    response.Measurements.Add(MeasumrentType.ampere_amp.ToString(), result.Data);
+                //if (result != null)
+                //{
+                //    var powerOn = result.Data == 0 ? 0 : 1;
+                //    response.Measurements.Add(MeasumrentType.power_on.ToString(), powerOn);
+                //    response.Measurements.Add(MeasumrentType.ampere_amp.ToString(), result.Data);
 
-                    if (result.SimpleMetering != null)
-                    {
-                        response.Measurements.Add(MeasumrentType.active_energy_wh.ToString(), result.SimpleMetering.ActiveEnergy);
-                        response.Measurements.Add(MeasumrentType.reactive_energy_varh.ToString(), result.SimpleMetering.ReActiveEnergy);
-                        response.Measurements.Add(MeasumrentType.active_power_w.ToString(), result.SimpleMetering.ActivePower);
-                        response.Measurements.Add(MeasumrentType.reactive_power_var.ToString(), result.SimpleMetering.ReActivePower);
-                        response.Measurements.Add(MeasumrentType.count_samples.ToString(), result.SimpleMetering.NumberOfSamples);
-                    }
-                }
+                //    if (result.SimpleMetering != null)
+                //    {
+                //        response.Measurements.Add(MeasumrentType.active_energy_wh.ToString(), result.SimpleMetering.ActiveEnergy);
+                //        response.Measurements.Add(MeasumrentType.reactive_energy_varh.ToString(), result.SimpleMetering.ReActiveEnergy);
+                //        response.Measurements.Add(MeasumrentType.active_power_w.ToString(), result.SimpleMetering.ActivePower);
+                //        response.Measurements.Add(MeasumrentType.reactive_power_var.ToString(), result.SimpleMetering.ReActivePower);
+                //        response.Measurements.Add(MeasumrentType.count_samples.ToString(), result.SimpleMetering.NumberOfSamples);
+                //    }
+                //}
             }
             catch (Exception ex)
             {

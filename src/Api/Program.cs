@@ -6,6 +6,7 @@ using Bluefragments.Utilities.Extensions;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Mvc;
+using Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,10 +24,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 IEnumerable<DeviceAttributeContainer> attributes = DeviceHelper.GetTypesWithDeviceAttributes();
+string modelId = "dtmi:generic:generic;1";
 
 app.MapPost("/", (PayloadRequest payloadRequest) =>
 {
-    payloadRequest.ModelId = "dtmi:generic:generic;1";
+    payloadRequest.ModelId = modelId;
 
     string deviceType = payloadRequest.DeviceType;
     if (string.IsNullOrEmpty(deviceType))
@@ -62,13 +64,18 @@ app.MapPost("/", (PayloadRequest payloadRequest) =>
 })
 .WithName("Translate payload from request");
 
-app.MapPost("/request", (dynamic payload) =>
+app.MapPost("/request", async (HttpRequest req) =>
 {
-    var payloadRequest = PayloadHelper.GeneratePayloadRequest(payload?.ToString());
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    var payload = JsonConvert.DeserializeObject<dynamic>(requestBody);
+
+    PayloadRequest payloadRequest = DeviceHelper.DecodePayloadMessage(payload);
     if (payloadRequest == null)
     {
         return Results.BadRequest("it was not possible to create a request from the data");
     }
+
+    payloadRequest.ModelId = modelId;
 
     return Results.Ok(payloadRequest);
 })

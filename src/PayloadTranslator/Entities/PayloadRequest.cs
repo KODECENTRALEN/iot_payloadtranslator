@@ -21,6 +21,4 @@ public class PayloadRequest
 
     [JsonProperty("deviceType")]
     public string DeviceType { get; set; }
-
-    public dynamic Payload { get; set; }
 }

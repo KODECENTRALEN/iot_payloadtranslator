@@ -29,12 +29,6 @@ namespace PayloadTranslator.Handlers
 
             try
             {
-                string command = request.Payload?.cmd;
-                if (string.IsNullOrEmpty(command) || command != "rx")
-                {
-                    return null;
-                }
-
                 var version = request.Data.Substring(0, 2); //// First two characters are for version
                 request.Data = request.Data.Remove(0, 2);
 
@@ -49,8 +43,7 @@ namespace PayloadTranslator.Handlers
                     var trials = hexBytes[3].FromHexToDecimal();
                     response.Measurements.Add(MeasumrentType.distance_cm.ToString(), distance);
 
-                    int.TryParse((string)request.Payload?.bat, out int battery);
-                    var batteryPercent = battery > 0 ? (int)((100d / 255d) * battery) : 0;
+                    var batteryPercent = request.Battery > 0 ? (int)((100d / 255d) * request.Battery) : 0;
                     response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryPercent);
                 }
             }

@@ -38,8 +38,7 @@ namespace PayloadTranslator.Handlers.Decentlab
                 var dewpoint = CalculationHelper.CalculateDewPoint(temperature, humidity);
                 response.Measurements.Add(MeasumrentType.dewpoint_c.ToString(), dewpoint);
 
-                int.TryParse((string)request.Payload?.bat, out int battery);
-                var batteryPercent = battery > 0 ? (int)((100d / 255d) * battery) : 0;
+                var batteryPercent = request.Battery > 0 ? (int)((100d / 255d) * request.Battery) : 0;
                 response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryPercent);
             }
             catch (Exception ex)
