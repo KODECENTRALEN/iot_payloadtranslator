@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IotNorden.Iot.Payloadtranslator", "src\PayloadTranslator\IotNorden.Iot.Payloadtranslator.csproj", "{DD409200-4139-4DA6-8FA0-2ABB033B587A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayloadTranslator", "src\PayloadTranslator\PayloadTranslator.csproj", "{DD409200-4139-4DA6-8FA0-2ABB033B587A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{A5BD1200-3B3D-4C56-92FE-094794038A7A}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,6 +20,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "src\Data\Data.csproj", "{86646E29-151F-458B-AC28-0396D374E8A2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "src\Utilities\Utilities.csproj", "{B7B4B400-A102-440D-9589-50564B40E8A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{5DDAF298-39F0-460D-8CE7-23A32CF1DD47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B7B4B400-A102-440D-9589-50564B40E8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7B4B400-A102-440D-9589-50564B40E8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7B4B400-A102-440D-9589-50564B40E8A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DDAF298-39F0-460D-8CE7-23A32CF1DD47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDAF298-39F0-460D-8CE7-23A32CF1DD47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDAF298-39F0-460D-8CE7-23A32CF1DD47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDAF298-39F0-460D-8CE7-23A32CF1DD47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

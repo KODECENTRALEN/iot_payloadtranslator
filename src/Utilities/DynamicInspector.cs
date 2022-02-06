@@ -35,10 +35,10 @@ namespace Utilities
 
         public static T GetDynamicValue<T>(dynamic data, List<string> possiblePropertyNames)
         {
-            if (data == null)
-            {
-                return default;
-            }
+            //if (data == null)
+            //{
+            //    return default;
+            //}
 
             foreach (var possiblePropertyName in possiblePropertyNames)
             {

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using Newtonsoft.Json;
 using PayloadTranslator.Attributes;
+using PayloadTranslator.Entities;
 using PayloadTranslator.Handlers;
 using Utilities;
 
-namespace PayloadTranslator.Entities;
+namespace PayloadTranslator.Helpers;
 
 public static class DeviceHelper
 {
@@ -22,7 +20,12 @@ public static class DeviceHelper
 
                 if (attribute is not null)
                 {
-                    var possibleNames = attribute.PossibleNames.Split(';');
+                    var possibleNames = attribute.PossibleNames?.Split(';');
+                    if(possibleNames == null || possibleNames.Any() == false)
+                    {
+                        possibleNames = new string[] { attribute.DeviceType.ToString() };
+                    }
+
                     if (possibleNames is not null && possibleNames.Length > 0)
                     {
                         foreach (var possibleName in possibleNames)
@@ -72,6 +75,25 @@ public static class DeviceHelper
     public static string GetDeviceId(dynamic payload)
     {
         return DynamicInspector.GetDynamicValue<string>(payload, PropertyNames.DeviceIdProperties);
+    }
+
+    public static IEnumerable<DeviceAttributeContainer> GetTypesWithDeviceAttributes()
+    {
+        var currentAssembly = Assembly.GetExecutingAssembly();
+        var types = currentAssembly.GetTypes();
+
+        var typesWithMyAttribute =
+            from a in AppDomain.CurrentDomain.GetAssemblies()
+            from t in a.GetTypes()
+            let attributes = t.GetCustomAttributes(typeof(SensorAttribute), true)
+            where attributes != null && attributes.Length > 0
+            select new DeviceAttributeContainer()
+            {
+                Type = t,
+                Attributes = attributes.Cast<SensorAttribute>()
+            };
+
+        return typesWithMyAttribute;
     }
 
     private static IEnumerable<Type> GetTypesWithHelpAttribute(Assembly assembly)

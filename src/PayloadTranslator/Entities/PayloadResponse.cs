@@ -9,6 +9,7 @@ namespace PayloadTranslator.Entities
         {
             Time = request.Time;
             DeviceType = request.DeviceType;
+            DeviceId = request.DeviceId;
             ModelId = request.ModelId;
             Data = request.Data;
             Measurements = new Dictionary<string, object>();
