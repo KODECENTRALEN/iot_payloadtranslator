@@ -1,7 +1,4 @@
-﻿using System;
-using Bluefragments.Utilities.Extensions;
-
-namespace Helpers
+﻿namespace Helpers
 {
     public static class CalculationHelper
     {
