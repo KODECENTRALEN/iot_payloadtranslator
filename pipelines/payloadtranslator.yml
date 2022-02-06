@@ -7,7 +7,7 @@ pool:
 name: 'Set dynamically from build task'
 
 variables:
-  solution: '**/IotNorden.Iot.Payloadtranslator.csproj'
+  solution: '**/Api.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
