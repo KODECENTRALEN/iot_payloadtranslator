@@ -10,6 +10,8 @@ public static class PropertyNames
 
     public static List<string> PayloadProperties { get; } = new List<string>() { "Payload" };
 
+    public static List<string> ContentProperties { get; } = new List<string>() { "Body", "body" };
+
     public static List<string> DataProperties { get; } = new List<string>() { "data", "Data", "rawdata", "Rawdata", "payload_raw", "metadata", "measurements" };
 
     public static List<string> TimeProperties { get; } = new List<string>() { "timestamp", "ts", "time", "Time", "timeObserved", "tstamp" };

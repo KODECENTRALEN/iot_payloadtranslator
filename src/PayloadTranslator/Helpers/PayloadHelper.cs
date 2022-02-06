@@ -1,4 +1,5 @@
 ﻿using Bluefragments.Utilities.Extensions;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PayloadTranslator.Entities;
 using Utilities;
@@ -14,6 +15,7 @@ public static class PayloadHelper
         Time,
         Battery,
         Parsed,
+        Content,
     }
 
     public static PayloadRequest GeneratePayloadRequest(dynamic payload)
@@ -60,6 +62,8 @@ public static class PayloadHelper
                 return (T)DynamicInspector.GetDynamicValue<T>(payload, PropertyNames.TimeProperties);
             case Properties.Battery:
                 return (T)DynamicInspector.GetDynamicValue<T>(payload, PropertyNames.BatteryProperties);
+            case Properties.Content:
+                return (T)DynamicInspector.GetDynamicValue<T>(payload, PropertyNames.ContentProperties);
             default:
                 break;
         }

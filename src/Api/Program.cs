@@ -3,6 +3,9 @@ using PayloadTranslator.Entities;
 using PayloadTranslator.Handlers;
 using PayloadTranslator.Helpers;
 using Bluefragments.Utilities.Extensions;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,7 +64,7 @@ app.MapPost("/", (PayloadRequest payloadRequest) =>
 
 app.MapPost("/request", (dynamic payload) =>
 {
-    var payloadRequest = PayloadHelper.GeneratePayloadRequest(payload);
+    var payloadRequest = PayloadHelper.GeneratePayloadRequest(payload?.ToString());
     if (payloadRequest == null)
     {
         return Results.BadRequest("it was not possible to create a request from the data");
