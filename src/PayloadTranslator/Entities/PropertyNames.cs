@@ -4,7 +4,7 @@ namespace PayloadTranslator.Entities;
 
 public static class PropertyNames
 {
-    public static List<string> DeviceIdProperties { get; } = new List<string>() { "device", "Device", "EUI", "hardware_serial", "stationId", "rsuid", "id", "deviceId", "DeviceId" };
+    public static List<string> DeviceIdProperties { get; } = new List<string>() { "dev_eui", "connectionDeviceId", "device", "Device", "EUI", "hardware_serial", "stationId", "rsuid", "id", "deviceId", "DeviceId" };
 
     public static List<string> DeviceTypeProperties { get; } = new List<string>() { "deviceType", "devicetype" };
 
