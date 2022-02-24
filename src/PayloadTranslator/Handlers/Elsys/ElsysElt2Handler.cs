@@ -4,6 +4,7 @@ using PayloadTranslator.Attributes;
 using PayloadTranslator.Enums;
 using PayloadTranslator.Entities;
 using Data.Enums;
+using PayloadTranslator.Handlers.Sensors;
 
 namespace PayloadTranslator.Handlers
 {
@@ -20,20 +21,39 @@ namespace PayloadTranslator.Handlers
             {
                 var result = Decoder.DecodePayload(request.Data);
 
-                var temperature = result.Temperature.Value;
-                var temperatureRoad = result.ExternalTemperature1.Value;
 
-                var bat = request.Battery * 100 / 254;
-                var battery = Math.Round((double)bat, 2);
+                if (result.ExternalTemperature1 != null)
+                {
+                    var temperatureRoad = result.ExternalTemperature1.Value;
+                    response.Measurements.Add(MeasumrentType.temperature_road_c.ToString(), temperatureRoad);
+                }
 
-                var humidity = result.Humidity.Value;
-                var dewpoint = CalculationHelper.CalculateDewPoint(temperature, humidity);
+                if (result.Temperature != null)
+                {
+                    var temperature = result.Temperature.Value;
+                    response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
+                }
 
-                response.Measurements.Add(MeasumrentType.temperature_road_c.ToString(), temperatureRoad);
-                response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
-                response.Measurements.Add(MeasumrentType.battery_pct.ToString(), battery);
-                response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), humidity);
-                response.Measurements.Add(MeasumrentType.dewpoint_c.ToString(), dewpoint);
+                if (result.Humidity != null)
+                {
+                    var humidity = result.Humidity.Value;
+                    response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), humidity);
+                }
+
+                if (result.Temperature != null && result.Humidity != null)
+                {
+                    var temperature = result.Temperature.Value;
+                    var humidity = result.Humidity.Value;
+                    var dewpoint = CalculationHelper.CalculateDewPoint(temperature, humidity);
+                    response.Measurements.Add(MeasumrentType.dewpoint_c.ToString(), dewpoint);
+                }
+
+                if (request.Battery > 0)
+                {
+                    var bat = request.Battery * 100 / 254;
+                    var battery = Math.Round((double)bat, 2);
+                    response.Measurements.Add(MeasumrentType.battery_pct.ToString(), battery);
+                }
             }
             catch (Exception ex)
             {
