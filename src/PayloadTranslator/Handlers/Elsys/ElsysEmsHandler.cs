@@ -6,7 +6,7 @@ using PayloadTranslator.Enums;
 
 namespace PayloadTranslator.Handlers
 {
-    [Sensor(DeviceTypes.ELT2, "dtmi:iotplatform:elsysElt221l;1", "ems")]
+    [Sensor(DeviceTypes.EMS, "dtmi:iotplatform:elsysElt221l;1", "ems")]
     public class ElsysElt2Handler : Handler, IHandler
     {
         public static readonly ElsysPayloadDecoder Decoder = new ElsysPayloadDecoder();

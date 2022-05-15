@@ -20,6 +20,8 @@ public enum DeviceTypes
     MAXBOTIX,
     [Description("Elsys;ELT2;ELT2")]
     ELT2,
+    [Description("Elsys;EMS;EMS")]
+    EMS,
     [Description("Elsys;ELT-HP-HP;ELT-HP-HP")]
     ELT_HP_HP,
     [Description("Elsys;ERSCO2;ERSCO2")]
