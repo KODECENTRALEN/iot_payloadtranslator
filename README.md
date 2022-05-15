@@ -1,1 +1,1 @@
-[![Build Status](https://dev.azure.com/iot-norden/iotgateway/_apis/build/status/payloadtranslator_package?branchName=main)](https://dev.azure.com/iot-norden/iotgateway/_build/latest?definitionId=9&branchName=main)
+[![Build Status](https://dev.azure.com/iot-norden/iotgateway/_apis/build/status/payloadtranslator?branchName=main)](https://dev.azure.com/iot-norden/iotgateway/_build/latest?definitionId=11&branchName=main)
