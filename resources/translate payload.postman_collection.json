@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "8c3f502d-2a4c-4018-94d0-d6814fd8ff34",
+		"name": "translate payload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "translate payload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deviceId\": \"70B3D57BA0001B50\",\r\n    \"deviceType\": \"DL_PM\",\r\n    \"data\": \"021b50000f0b9f003400370037003701fe017301a401a501a501a56216bf2bc5a1\",\r\n    \"time\": 1624864686\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{translatepayload_url}}",
+					"host": [
+						"{{translatepayload_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "translate - elsys ems",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deviceId\": \"70B3D57BA0001B50\",\r\n    \"deviceType\": \"ELT2\",\r\n    \"data\": \"0100f8021f0300cc2b070e1c0b0000000c0d000f121200\",\r\n    \"time\": 1624864686\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{translatepayload_url}}",
+					"host": [
+						"{{translatepayload_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Body\": {\r\n        \"device\": \"70B3D57BA0001B50\",\r\n        \"data\": \"021b50000f0b9f003400370037003701fe017301a401a501a501a56216bf2bc5a1\",\r\n        \"time\": \"1624864686\",\r\n        \"devicetype\": \"DL_PM\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7069/request",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7069",
+					"path": [
+						"request"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "translatepayload_api_url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
