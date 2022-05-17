@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Data.Enums;
 using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
 using PayloadTranslator.Entities;
-using Data.Enums;
+using PayloadTranslator.Enums;
 
 namespace PayloadTranslator.Handlers
 {
-    [Sensor(DeviceTypes.ERSSOUND, "dtmi:iotplatform:elsysErsSound3bk;1", "ERSSOUND")]
+    [Sensor(DeviceTypes.ERSSOUND, "dtmi:generic:generic;1", "ERSSOUND")]
     public class ElsysSoundHandler : Handler, IHandler
     {
         public static readonly ElsysPayloadDecoder Decoder = new ElsysPayloadDecoder();
