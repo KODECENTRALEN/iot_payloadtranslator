@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Data.Enums;
 using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
 using PayloadTranslator.Entities;
-using Data.Enums;
+using PayloadTranslator.Enums;
 
 namespace PayloadTranslator.Handlers
 {
-    [Sensor(DeviceTypes.ULTRASONIC, "dtmi:iotplatform:elsysUltrasonic1cn;1", "ULTRASONIC")]
+    [Sensor(DeviceTypes.ULTRASONIC, "dtmi:generic:generic;1", "ULTRASONIC")]
     public class ElsysUltrasonicHandler : Handler, IHandler
     {
         public static readonly ElsysPayloadDecoder Decoder = new ElsysPayloadDecoder();

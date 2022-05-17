@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Data.Enums;
 using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
 using PayloadTranslator.Entities;
-using Data.Enums;
+using PayloadTranslator.Enums;
 
 namespace PayloadTranslator.Handlers.Elsys
 {
-    [Sensor(DeviceTypes.ELT_HP_HP, "dtmi:iotplatform:elsysElt2Hp6rt;1", "ELT-HP-HP")]
+    [Sensor(DeviceTypes.ELT_HP_HP, "dtmi:generic:generic;1", "ELT-HP-HP")]
     public class ElsysElt2HpHandler : Handler, IHandler
     {
         public static readonly ElsysPayloadDecoder Decoder = new ElsysPayloadDecoder();
