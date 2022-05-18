@@ -39,6 +39,23 @@ namespace PayloadTranslator.Handlers
                     response.Measurements.Add(MeasumrentType.dewpoint_c.ToString(), dewpoint);
                 }
 
+                /* Number of times the reed switch has been triggered since last send.
+                 * 
+                 * In my one example data, this was undefined. I am guessing that this was
+                 * because it was 0. If this is true, then the value should possibly be
+                 * set to 0 unstead of undefined in the output.
+                 * */
+                if (result.PulseInput1 is not null)
+                {
+                    response.Measurements.Add(MeasumrentType.count.ToString(), result.PulseInput1);
+                }
+                //Number of times the reed switch has been triggered in total.
+                if (result.PulseInput1Absolute is not null)
+                {
+                    response.Measurements.Add(MeasumrentType.count_acc.ToString(), result.PulseInput1Absolute);
+                }
+
+
                 if (request.Battery > 0)
                 {
                     var bat = request.Battery * 100 / 254;
