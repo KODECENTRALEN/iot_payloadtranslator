@@ -8,7 +8,7 @@ namespace PayloadTranslator.Helpers;
 
 public static class DeviceHelper
 {
-    public static IHandler FindHandlerForDeviceType(string deviceType, IEnumerable<DeviceAttributeContainer> attributes)
+    public static IHandler? FindHandlerForDeviceType(string deviceType, IEnumerable<DeviceAttributeContainer> attributes)
     {
         if (deviceType is not null)
         {
@@ -33,7 +33,7 @@ public static class DeviceHelper
                             {
                                 if (typeof(IHandler).IsAssignableFrom(type))
                                 {
-                                    var handlerInstance = (IHandler)Activator.CreateInstance(type);
+                                    IHandler? handlerInstance = (IHandler)Activator.CreateInstance(type);
                                     return handlerInstance;
                                 }
                             }
