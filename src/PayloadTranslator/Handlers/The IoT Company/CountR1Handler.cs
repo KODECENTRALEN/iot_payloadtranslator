@@ -22,7 +22,7 @@ namespace PayloadTranslator.Handlers
             {
                 //// documentation states do little Endian. aka reverse order of second and third bytes
                 var counter = (hexBytes[2] + hexBytes[1]).FromHexToDouble();
-                response.Measurements.Add(MeasumrentType.count.ToString(), counter);
+                response.Measurements.Add(MeasurementType.count.ToString(), counter);
             }
             catch (Exception ex)
             {

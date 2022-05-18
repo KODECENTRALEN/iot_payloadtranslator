@@ -30,8 +30,8 @@ namespace PayloadTranslator.Handlers
                     //// documentation states that the last bit of the fourth byte plus the fith byte is the distance
                     var distance = binaryString.Substring(23, 9).FromBinaryToDecimal();
 
-                    response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryLevel);
-                    response.Measurements.Add(MeasumrentType.distance_cm.ToString(), distance);
+                    response.Measurements.Add(MeasurementType.battery_pct.ToString(), batteryLevel);
+                    response.Measurements.Add(MeasurementType.distance_cm.ToString(), distance);
                 }
             }
             catch (Exception ex)

@@ -28,12 +28,12 @@ namespace PayloadTranslator.Handlers
                 double bat = ((currentVoltage - 1500) / (3700 - 1500)) * 100;
                 var battery = Math.Round(bat, 2);
 
-                response.Measurements.Add(MeasumrentType.co2_ppm.ToString(), co2);
-                response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
-                response.Measurements.Add(MeasumrentType.battery_pct.ToString(), battery);
-                response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), humidity);
-                response.Measurements.Add(MeasumrentType.lux_lumen.ToString(), lux);
-                response.Measurements.Add(MeasumrentType.movement.ToString(), pir);
+                response.Measurements.Add(MeasurementType.co2_ppm.ToString(), co2);
+                response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperature);
+                response.Measurements.Add(MeasurementType.battery_pct.ToString(), battery);
+                response.Measurements.Add(MeasurementType.humidity_pct.ToString(), humidity);
+                response.Measurements.Add(MeasurementType.lux_lumen.ToString(), lux);
+                response.Measurements.Add(MeasurementType.movement.ToString(), pir);
             }
             catch (Exception ex)
             {

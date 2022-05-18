@@ -21,7 +21,7 @@ namespace PayloadTranslator.Handlers
             try
             {
                 var counter = (hexBytes[0] + hexBytes[1] + hexBytes[2] + hexBytes[3]).FromHexToDecimal();
-                response.Measurements.Add(MeasumrentType.count.ToString(), counter);
+                response.Measurements.Add(MeasurementType.count.ToString(), counter);
             }
             catch (Exception ex)
             {

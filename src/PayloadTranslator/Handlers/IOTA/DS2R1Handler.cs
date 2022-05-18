@@ -30,17 +30,17 @@ namespace PayloadTranslator.Handlers
                 {
                     var batteryStatus = Convert.ToInt64(hexBytes[0], 16);
                     var batteryPct = (100 / 201d) * batteryStatus;
-                    response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryPct);
+                    response.Measurements.Add(MeasurementType.battery_pct.ToString(), batteryPct);
                 }
 
                 if (hexBytes[0] == "aa")
                 {
-                    response.Measurements.Add(MeasumrentType.door_open.ToString(), 1);
+                    response.Measurements.Add(MeasurementType.door_open.ToString(), 1);
                 }
 
                 if (hexBytes[0] == "bb")
                 {
-                    response.Measurements.Add(MeasumrentType.door_close.ToString(), 1);
+                    response.Measurements.Add(MeasurementType.door_close.ToString(), 1);
                 }
             }
             catch (Exception ex)

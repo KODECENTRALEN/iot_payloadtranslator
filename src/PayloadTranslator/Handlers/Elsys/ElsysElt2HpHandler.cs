@@ -22,9 +22,9 @@ namespace PayloadTranslator.Handlers.Elsys
                 var temperatureRoad = result.ExternalTemperature1.Value;
                 var temperatureGround = result.ExternalTemperature2.Value;
 
-                response.Measurements.Add(MeasumrentType.temperature_road_c.ToString(), temperatureRoad);
-                response.Measurements.Add(MeasumrentType.temperature_ground_c.ToString(), temperatureGround);
-                response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
+                response.Measurements.Add(MeasurementType.temperature_road_c.ToString(), temperatureRoad);
+                response.Measurements.Add(MeasurementType.temperature_ground_c.ToString(), temperatureGround);
+                response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperature);
             }
             catch (Exception ex)
             {

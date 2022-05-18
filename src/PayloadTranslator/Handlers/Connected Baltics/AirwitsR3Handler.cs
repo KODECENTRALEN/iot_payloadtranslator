@@ -32,9 +32,9 @@ namespace PayloadTranslator.Handlers
                 var humidity = hexBytes[2].FromHexToDouble();
                 var dewpoint = CalculationHelper.CalculateDewPoint(temperature, humidity);
 
-                response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
-                response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), humidity);
-                response.Measurements.Add(MeasumrentType.dewpoint_c.ToString(), dewpoint);
+                response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperature);
+                response.Measurements.Add(MeasurementType.humidity_pct.ToString(), humidity);
+                response.Measurements.Add(MeasurementType.dewpoint_c.ToString(), dewpoint);
             }
             catch (Exception ex)
             {
