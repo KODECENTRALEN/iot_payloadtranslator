@@ -19,7 +19,7 @@ public static class DeviceHelper
 
                 if (attribute is not null)
                 {
-                    var possibleNames = attribute.PossibleNames?.Split(';');
+                    string[]? possibleNames = attribute.PossibleNames?.Split(';');
                     if (possibleNames == null || possibleNames.Any() == false)
                     {
                         possibleNames = new string[] { attribute.DeviceType.ToString() };
@@ -27,7 +27,7 @@ public static class DeviceHelper
 
                     if (possibleNames is not null && possibleNames.Length > 0)
                     {
-                        foreach (var possibleName in possibleNames)
+                        foreach (string possibleName in possibleNames)
                         {
                             if (possibleName.Equals(deviceType, StringComparison.InvariantCultureIgnoreCase))
                             {
