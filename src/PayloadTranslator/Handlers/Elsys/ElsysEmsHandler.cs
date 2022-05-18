@@ -19,13 +19,6 @@ namespace PayloadTranslator.Handlers
             {
                 var result = Decoder.DecodePayload(request.Data);
 
-
-                if (result.ExternalTemperature1 != null)
-                {
-                    var temperatureRoad = result.ExternalTemperature1.Value;
-                    response.Measurements.Add(MeasumrentType.temperature_road_c.ToString(), temperatureRoad);
-                }
-
                 if (result.Temperature != null)
                 {
                     var temperature = result.Temperature.Value;
