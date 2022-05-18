@@ -55,7 +55,7 @@ namespace PayloadTranslator.Handlers
             }
             catch (Exception ex)
             {
-                throw new Exception($"{nameof(ElsysElt2Handler)} failed", ex);
+                throw new Exception($"{this.GetType().Name} failed", ex);
             }
 
             return response;
