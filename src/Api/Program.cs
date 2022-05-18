@@ -48,7 +48,7 @@ app.MapPost("/", (PayloadRequest payloadRequest) =>
         return Results.BadRequest("time is not specified correctly");
     }
 
-    IHandler handler = DeviceHelper.FindHandlerForDeviceType(deviceType, attributes);
+    IHandler? handler = DeviceHelper.FindHandlerForDeviceType(deviceType, attributes);
     if (handler == null)
     {
         return Results.BadRequest("it was not possible to find a handler for the devicetype");

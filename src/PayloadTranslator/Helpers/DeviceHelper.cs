@@ -14,15 +14,15 @@ public static class DeviceHelper
         {
             foreach (var possibleHandlerType in attributes)
             {
-                var type = possibleHandlerType.Type;
-                var attribute = possibleHandlerType.Attributes?.FirstOrDefault();
+                Type type = possibleHandlerType.Type;
+                SensorAttribute? SensorType = possibleHandlerType.Attributes?.FirstOrDefault();
 
-                if (attribute is not null)
+                if (SensorType is not null)
                 {
-                    string[]? possibleNames = attribute.PossibleNames?.Split(';');
+                    string[]? possibleNames = SensorType.PossibleNames?.Split(';');
                     if (possibleNames == null || possibleNames.Any() == false)
                     {
-                        possibleNames = new string[] { attribute.DeviceType.ToString() };
+                        possibleNames = new string[] { SensorType.DeviceType.ToString() };
                     }
 
                     if (possibleNames is not null && possibleNames.Length > 0)
@@ -33,8 +33,12 @@ public static class DeviceHelper
                             {
                                 if (typeof(IHandler).IsAssignableFrom(type))
                                 {
-                                    IHandler? handlerInstance = (IHandler)Activator.CreateInstance(type);
-                                    return handlerInstance;
+                                    var NewObject = Activator.CreateInstance(type);
+                                    if (NewObject is not null)
+                                    {
+                                        IHandler? handlerInstance = (IHandler)NewObject;
+                                        return handlerInstance;
+                                    }
                                 }
                             }
                         }
