@@ -104,4 +104,12 @@ public enum MeasumrentType
     count_dm3_tick,
     [Description("count dm4 tick")]
     count_dm4_tick,
+    [Description("Acceleration X in mg")]
+    acceleration_x_mg,
+    [Description("Acceleration Y in mg")]
+    acceleration_y_mg,
+    [Description("Acceleration Z in mg")]
+    acceleration_z_mg,
+    [Description("Acceleration in mg")]
+    acceleration_mg,
 }
