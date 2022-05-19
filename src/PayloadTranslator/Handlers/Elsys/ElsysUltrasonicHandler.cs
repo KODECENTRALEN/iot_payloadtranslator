@@ -30,10 +30,10 @@ namespace PayloadTranslator.Handlers
                 var bat = request.Battery * 100 / 254;
                 var battery = Math.Round((double)bat, 2);
 
-                response.Measurements.Add(MeasumrentType.distance_cm.ToString(), distance);
-                response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
-                response.Measurements.Add(MeasumrentType.battery_pct.ToString(), battery);
-                response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), humidity);
+                response.Measurements.Add(MeasurementType.distance_cm.ToString(), distance);
+                response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperature);
+                response.Measurements.Add(MeasurementType.battery_pct.ToString(), battery);
+                response.Measurements.Add(MeasurementType.humidity_pct.ToString(), humidity);
             }
             catch (Exception ex)
             {

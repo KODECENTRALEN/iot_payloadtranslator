@@ -22,18 +22,18 @@ namespace PayloadTranslator.Handlers.IotFabrikken
 
                 var timeStamp = result.Tstamp.ToEpochTimeSeconds();
 
-                response.Measurements.Add(MeasumrentType.temperature_c.ToString(), result.Temperature);
-                response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), result.Humdity);
-                response.Measurements.Add(MeasumrentType.sound_peak_db.ToString(), result.SoundHigh);
-                response.Measurements.Add(MeasumrentType.sound_current_db.ToString(), result.Sound);
-                response.Measurements.Add(MeasumrentType.sound_low_db.ToString(), result.SoundLow);
-                response.Measurements.Add(MeasumrentType.co2_ppm.ToString(), result.Co2);
-                response.Measurements.Add(MeasumrentType.light_color.ToString(), result.LightColour);
-                response.Measurements.Add(MeasumrentType.light_level.ToString(), result.LightLevel);
-                response.Measurements.Add(MeasumrentType.occupancy.ToString(), result.Occupancy);
-                response.Measurements.Add(MeasumrentType.rssi_dbm.ToString(), result.Rssi);
-                response.Measurements.Add(MeasumrentType.voc_ppb.ToString(), result.Voc);
-                response.Measurements.Add(MeasumrentType.voltage_v.ToString(), result.Voltage);
+                response.Measurements.Add(MeasurementType.temperature_c.ToString(), result.Temperature);
+                response.Measurements.Add(MeasurementType.humidity_pct.ToString(), result.Humdity);
+                response.Measurements.Add(MeasurementType.sound_peak_db.ToString(), result.SoundHigh);
+                response.Measurements.Add(MeasurementType.sound_current_db.ToString(), result.Sound);
+                response.Measurements.Add(MeasurementType.sound_low_db.ToString(), result.SoundLow);
+                response.Measurements.Add(MeasurementType.co2_ppm.ToString(), result.Co2);
+                response.Measurements.Add(MeasurementType.light_color.ToString(), result.LightColour);
+                response.Measurements.Add(MeasurementType.light_level.ToString(), result.LightLevel);
+                response.Measurements.Add(MeasurementType.occupancy.ToString(), result.Occupancy);
+                response.Measurements.Add(MeasurementType.rssi_dbm.ToString(), result.Rssi);
+                response.Measurements.Add(MeasurementType.voc_ppb.ToString(), result.Voc);
+                response.Measurements.Add(MeasurementType.voltage_v.ToString(), result.Voltage);
             }
             catch (Exception ex)
             {

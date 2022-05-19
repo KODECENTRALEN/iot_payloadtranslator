@@ -41,10 +41,10 @@ namespace PayloadTranslator.Handlers
                 {
                     var distance = hexBytes[2].FromHexToDecimal() / 10;
                     var trials = hexBytes[3].FromHexToDecimal();
-                    response.Measurements.Add(MeasumrentType.distance_cm.ToString(), distance);
+                    response.Measurements.Add(MeasurementType.distance_cm.ToString(), distance);
 
                     var batteryPercent = request.Battery > 0 ? (int)((100d / 255d) * request.Battery) : 0;
-                    response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryPercent);
+                    response.Measurements.Add(MeasurementType.battery_pct.ToString(), batteryPercent);
                 }
             }
             catch (Exception ex)

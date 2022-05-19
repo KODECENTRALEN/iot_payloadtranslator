@@ -2,7 +2,7 @@
 
 namespace Data.Enums;
 
-public enum MeasumrentType
+public enum MeasurementType
 {
     [Description("battery pct")]
     battery_pct,

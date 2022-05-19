@@ -31,8 +31,8 @@ namespace PayloadTranslator.Handlers
                     //// documentation states that the fourth byte is the distance
                     var distance = hexBytes[3].FromHexToDecimal();
 
-                    response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryPercentage);
-                    response.Measurements.Add(MeasumrentType.distance_cm.ToString(), distance);
+                    response.Measurements.Add(MeasurementType.battery_pct.ToString(), batteryPercentage);
+                    response.Measurements.Add(MeasurementType.distance_cm.ToString(), distance);
                 }
             }
             catch (Exception ex)

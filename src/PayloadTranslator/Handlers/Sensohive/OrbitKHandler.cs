@@ -20,7 +20,7 @@ namespace PayloadTranslator.Handlers
                 var values = request.Data.Split(',');
                 var temperatureAir = double.Parse(values[1], culture);
                 var temperatureRoad = double.Parse(values[3], culture);
-                response.Measurements.Add(MeasumrentType.temperature_road_c.ToString(), temperatureRoad);
+                response.Measurements.Add(MeasurementType.temperature_road_c.ToString(), temperatureRoad);
             }
             catch (Exception ex)
             {

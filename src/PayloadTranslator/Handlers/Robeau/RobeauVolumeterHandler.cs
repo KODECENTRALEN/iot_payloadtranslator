@@ -29,11 +29,11 @@ namespace PayloadTranslator.Handlers.Robeau
                 // Sensors values
                 var sensorValues = ExtractSensorValues(hexString);
 
-                response.Measurements.Add(MeasumrentType.battery_level.ToString(), batteryLevel);
-                response.Measurements.Add(MeasumrentType.count_dm1_tick.ToString(), sensorValues.Where(x => x.Key == 1).First().Value);
-                response.Measurements.Add(MeasumrentType.count_dm2_tick.ToString(), sensorValues.Where(x => x.Key == 2).First().Value);
-                response.Measurements.Add(MeasumrentType.count_dm3_tick.ToString(), sensorValues.Where(x => x.Key == 3).First().Value);
-                response.Measurements.Add(MeasumrentType.count_dm4_tick.ToString(), sensorValues.Where(x => x.Key == 4).First().Value);
+                response.Measurements.Add(MeasurementType.battery_level.ToString(), batteryLevel);
+                response.Measurements.Add(MeasurementType.count_dm1_tick.ToString(), sensorValues.Where(x => x.Key == 1).First().Value);
+                response.Measurements.Add(MeasurementType.count_dm2_tick.ToString(), sensorValues.Where(x => x.Key == 2).First().Value);
+                response.Measurements.Add(MeasurementType.count_dm3_tick.ToString(), sensorValues.Where(x => x.Key == 3).First().Value);
+                response.Measurements.Add(MeasurementType.count_dm4_tick.ToString(), sensorValues.Where(x => x.Key == 4).First().Value);
             }
             catch (Exception ex)
             {

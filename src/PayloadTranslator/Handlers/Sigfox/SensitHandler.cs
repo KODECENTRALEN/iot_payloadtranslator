@@ -33,8 +33,8 @@ namespace PayloadTranslator.Handlers
                 var batteryVolts = (batteryPayload * 0.05d) + 2.7;
                 var batteryPct = Math.Round(100 / 4.15 * batteryVolts, 0);
 
-                response.Measurements.Add(MeasumrentType.battery_level.ToString(), batteryVolts);
-                response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryPct);
+                response.Measurements.Add(MeasurementType.battery_level.ToString(), batteryVolts);
+                response.Measurements.Add(MeasurementType.battery_pct.ToString(), batteryPct);
 
                 var mode = bytes[0].Substring(5, 3).FromBinaryToDecimal();
 
@@ -44,15 +44,15 @@ namespace PayloadTranslator.Handlers
                     case 1:
                         var temperatureDecimal = string.Concat(bytes[1].Substring(0, 4), bytes[2].Substring(2, 6)).FromBinaryToDecimal();
                         var temperatureC = Math.Round((temperatureDecimal - 200) / 8);
-                        response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperatureC);
+                        response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperatureC);
                         var humidityPayload = bytes[3].Substring(0, 8).FromBinaryToDecimal();
                         var humidityPct = Math.Round(humidityPayload / 2, 0);
-                        response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), humidityPct);
+                        response.Measurements.Add(MeasurementType.humidity_pct.ToString(), humidityPct);
                         break;
                     case 2:
                         var brightnessPayload = binaryString.Substring(16, 16).FromBinaryToDecimal();
                         var brightnessLux = Math.Round(brightnessPayload / 96, 2);
-                        response.Measurements.Add(MeasumrentType.lux_lumen.ToString(), brightnessLux);
+                        response.Measurements.Add(MeasurementType.lux_lumen.ToString(), brightnessLux);
                         break;
                     default:
                         break;
