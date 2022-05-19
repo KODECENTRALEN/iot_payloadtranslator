@@ -15,14 +15,14 @@ public static class DeviceHelper
             foreach (var possibleHandlerType in attributes)
             {
                 var type = possibleHandlerType.Type;
-                var attribute = possibleHandlerType.Attributes?.FirstOrDefault();
+                var sensorType = possibleHandlerType.Attributes?.FirstOrDefault();
 
-                if (attribute is not null)
+                if (sensorType is not null)
                 {
-                    var possibleNames = attribute.PossibleNames?.Split(';');
+                    var possibleNames = sensorType.PossibleNames?.Split(';');
                     if (possibleNames == null || possibleNames.Any() == false)
                     {
-                        possibleNames = new string[] { attribute.DeviceType.ToString() };
+                        possibleNames = new string[] { sensorType.DeviceType.ToString() };
                     }
 
                     if (possibleNames is not null && possibleNames.Length > 0)
