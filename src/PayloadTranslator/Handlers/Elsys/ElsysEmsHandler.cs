@@ -55,6 +55,33 @@ namespace PayloadTranslator.Handlers
                     response.Measurements.Add(MeasumrentType.count_acc.ToString(), result.PulseInput1Absolute);
                 }
 
+                /* The acceleration property always is not null.
+                 * X, Y, and Z are set null or not null syncroneously in the decoder;
+                 * the redundant tripple "is not null check" is to make visual studio not 
+                 * show null warnings
+                 * */
+                if (result.Acceleration.X is not null
+                    && result.Acceleration.Y is not null
+                    && result.Acceleration.Z is not null)
+                {
+                    response.Measurements.Add(MeasumrentType.acceleration_x_mg.ToString(),
+                        AccelerationConverterToMg((int)result.Acceleration.X)
+                        );
+                    response.Measurements.Add(MeasumrentType.acceleration_y_mg.ToString(),
+                        AccelerationConverterToMg((int)result.Acceleration.Y)
+                        );
+                    response.Measurements.Add(MeasumrentType.acceleration_z_mg.ToString(),
+                        AccelerationConverterToMg((int)result.Acceleration.Z)
+                        );
+
+                    var accelerationRaw = AccelerationMagnitude(
+                        (int)result.Acceleration.X,
+                        (int)result.Acceleration.Y,
+                        (int)result.Acceleration.Z
+                        );
+                    response.Measurements.Add(MeasumrentType.acceleration_mg.ToString(),
+                        AccelerationConverterToMg(accelerationRaw));
+                }
 
                 if (request.Battery > 0)
                 {
@@ -69,6 +96,23 @@ namespace PayloadTranslator.Handlers
             }
 
             return response;
+        }
+
+        /* Per https://elsys.se/public/datasheets/EMS_datasheet.pdf , 
+         * the EMS device returns a value between -127 and 127, and 63=1g.
+         * */
+        private int AccelerationConverterToMg(double elsysVal)
+        {
+            double in_gs = elsysVal / 63;
+            double in_mgs = in_gs * 1000;
+            return (int)Math.Round(in_mgs, 0);
+        }
+
+        //Retuns the directionless magnitude given vector components.
+        private double AccelerationMagnitude(double x, double y, double z)
+        {
+            //pythagoras
+            return Math.Sqrt(x * x + y * y + z * z);
         }
     }
 }
