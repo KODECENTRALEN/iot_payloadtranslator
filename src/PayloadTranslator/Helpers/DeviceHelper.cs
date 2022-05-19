@@ -33,8 +33,11 @@ public static class DeviceHelper
                             {
                                 if (typeof(IHandler).IsAssignableFrom(type))
                                 {
-                                    var handlerInstance = (IHandler)Activator.CreateInstance(type);
-                                    return handlerInstance;
+                                    var handlerInstance = Activator.CreateInstance(type);
+                                    if (handlerInstance is not null)
+                                    {
+                                        return (IHandler)handlerInstance;
+                                    }
                                 }
                             }
                         }
