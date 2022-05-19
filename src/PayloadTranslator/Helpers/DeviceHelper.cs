@@ -8,7 +8,7 @@ namespace PayloadTranslator.Helpers;
 
 public static class DeviceHelper
 {
-    public static IHandler FindHandlerForDeviceType(string deviceType, IEnumerable<DeviceAttributeContainer> attributes)
+    public static IHandler? FindHandlerForDeviceType(string deviceType, IEnumerable<DeviceAttributeContainer> attributes)
     {
         if (deviceType is not null)
         {
