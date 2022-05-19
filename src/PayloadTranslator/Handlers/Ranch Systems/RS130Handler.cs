@@ -44,7 +44,7 @@ namespace PayloadTranslator.Handlers.Ranch_Systems
                         waterLevel = 0;
                     }
 
-                    response.Measurements.Add(MeasumrentType.distance_cm.ToString(), waterLevel);
+                    response.Measurements.Add(MeasurementType.distance_cm.ToString(), waterLevel);
                 }
 
                 var temperatureFahrenheit = result.FirstOrDefault(x => x.Type == TEMPERATUREFAHRENHEITTYPE)?.Value;
@@ -52,7 +52,7 @@ namespace PayloadTranslator.Handlers.Ranch_Systems
                 {
                     var temperatureCelcius = (temperatureFahrenheit - 32) * 5 / 9;
                     var temperature = Math.Round((double)temperatureCelcius, 2);
-                    response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
+                    response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperature);
                 }
             }
             catch (Exception ex)

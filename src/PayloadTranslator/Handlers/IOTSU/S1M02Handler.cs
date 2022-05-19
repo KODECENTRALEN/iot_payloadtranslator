@@ -31,9 +31,9 @@ namespace PayloadTranslator.Handlers
                 var activityCount1 = binaryString.Substring(16, 10).FromBinaryToDecimal();
                 var activityCount2 = binaryString.Substring(26, 10).FromBinaryToDecimal();
 
-                response.Measurements.Add(MeasumrentType.battery_pct.ToString(), batteryPct);
-                response.Measurements.Add(MeasumrentType.count_dm1_activity_acc.ToString(), activityCount1);
-                response.Measurements.Add(MeasumrentType.count_dm2_activity_acc.ToString(), activityCount2);
+                response.Measurements.Add(MeasurementType.battery_pct.ToString(), batteryPct);
+                response.Measurements.Add(MeasurementType.count_dm1_activity_acc.ToString(), activityCount1);
+                response.Measurements.Add(MeasurementType.count_dm2_activity_acc.ToString(), activityCount2);
             }
             catch (Exception ex)
             {

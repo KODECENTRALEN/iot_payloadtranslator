@@ -33,10 +33,10 @@ public class AirwitsCo2Handler : Handler, IHandler
             var co2Level = (hexBytes[3] + hexBytes[4]).FromHexToDouble();
             var dewpoint = CalculationHelper.CalculateDewPoint(temperature, humidity);
 
-            response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
-            response.Measurements.Add(MeasumrentType.humidity_pct.ToString(), humidity);
-            response.Measurements.Add(MeasumrentType.co2_ppm.ToString(), co2Level);
-            response.Measurements.Add(MeasumrentType.dewpoint_c.ToString(), dewpoint);
+            response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperature);
+            response.Measurements.Add(MeasurementType.humidity_pct.ToString(), humidity);
+            response.Measurements.Add(MeasurementType.co2_ppm.ToString(), co2Level);
+            response.Measurements.Add(MeasurementType.dewpoint_c.ToString(), dewpoint);
         }
         catch (Exception ex)
         {

@@ -28,9 +28,9 @@ namespace PayloadTranslator.Handlers
                 var battery = Math.Round((double)bat, 2);
                 var doorCount = result.DoorCount;
 
-                response.Measurements.Add(MeasumrentType.count_acc.ToString(), doorCount);
-                response.Measurements.Add(MeasumrentType.temperature_c.ToString(), temperature);
-                response.Measurements.Add(MeasumrentType.battery_pct.ToString(), battery);
+                response.Measurements.Add(MeasurementType.count_acc.ToString(), doorCount);
+                response.Measurements.Add(MeasurementType.temperature_c.ToString(), temperature);
+                response.Measurements.Add(MeasurementType.battery_pct.ToString(), battery);
             }
             catch (Exception ex)
             {

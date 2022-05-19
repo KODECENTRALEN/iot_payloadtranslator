@@ -36,8 +36,8 @@ namespace PayloadTranslator.Handlers
 
                     var battery = hexBytes[4].FromHexToDecimal();
 
-                    response.Measurements.Add(MeasumrentType.distance_cm.ToString(), distance);
-                    response.Measurements.Add(MeasumrentType.battery_pct.ToString(), battery);
+                    response.Measurements.Add(MeasurementType.distance_cm.ToString(), distance);
+                    response.Measurements.Add(MeasurementType.battery_pct.ToString(), battery);
                 }
             }
             catch (Exception ex)
