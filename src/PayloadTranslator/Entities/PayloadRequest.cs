@@ -7,9 +7,6 @@ public class PayloadRequest
     [JsonProperty("deviceId")]
     public string DeviceId { get; set; }
 
-    [JsonProperty("modelId")]
-    public string ModelId { get; set; }
-
     [JsonProperty("data")]
     public string Data { get; set; }
 

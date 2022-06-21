@@ -10,24 +10,12 @@ namespace PayloadTranslator.Entities
             Time = request.Time;
             DeviceType = request.DeviceType;
             DeviceId = request.DeviceId;
-            ModelId = request.ModelId;
             Data = request.Data;
             Measurements = new Dictionary<string, object>();
         }
 
-        public PayloadResponse(string error)
-        {
-            Error = error;
-        }
-
-        [JsonProperty("error")]
-        public string Error { get; set; }
-
         [JsonProperty("deviceId")]
         public string DeviceId { get; set; }
-
-        [JsonProperty("modelId")]
-        public string ModelId { get; set; }
 
         [JsonProperty("data")]
         public string Data { get; set; }

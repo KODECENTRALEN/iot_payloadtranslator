@@ -28,8 +28,6 @@ string modelId = "dtmi:generic:generic;1";
 
 app.MapPost("/", (PayloadRequest payloadRequest) =>
 {
-    payloadRequest.ModelId = modelId;
-
     string deviceType = payloadRequest.DeviceType;
     if (string.IsNullOrEmpty(deviceType))
     {
@@ -43,9 +41,21 @@ app.MapPost("/", (PayloadRequest payloadRequest) =>
     }
 
     long time = payloadRequest.Time;
-    if (time == 0 || time > DateTime.Now.ToEpochTimeSeconds())
+    if (time == 0)
     {
         return Results.BadRequest("time is not specified correctly");
+    }
+
+    long now = DateTime.Now.ToEpochTimeSeconds();
+    if (time > now)
+    {
+        long timeInSeconds = time / 1000;
+        if (timeInSeconds > now)
+        {
+            return Results.BadRequest("time is not specified correctly");
+        }
+
+        time = timeInSeconds;
     }
 
     IHandler handler = DeviceHelper.FindHandlerForDeviceType(deviceType, attributes);
@@ -74,8 +84,6 @@ app.MapPost("/request", async (HttpRequest req) =>
     {
         return Results.BadRequest("it was not possible to create a request from the data");
     }
-
-    payloadRequest.ModelId = modelId;
 
     return Results.Ok(payloadRequest);
 })
