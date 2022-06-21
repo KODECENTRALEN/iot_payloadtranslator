@@ -1,12 +1,9 @@
-﻿using PayloadTranslator.Attributes;
+﻿using Bluefragments.Utilities.Extensions;
+using Newtonsoft.Json;
+using PayloadTranslator.Attributes;
 using PayloadTranslator.Entities;
 using PayloadTranslator.Handlers;
 using PayloadTranslator.Helpers;
-using Bluefragments.Utilities.Extensions;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc;
-using Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +21,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 IEnumerable<DeviceAttributeContainer> attributes = DeviceHelper.GetTypesWithDeviceAttributes();
-string modelId = "dtmi:generic:generic;1";
 
 app.MapPost("/", (PayloadRequest payloadRequest) =>
 {
