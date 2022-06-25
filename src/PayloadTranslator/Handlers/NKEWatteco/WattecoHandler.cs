@@ -1,11 +1,10 @@
-﻿using System;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers.NKEWatteco.Helpers;
-using Data.Enums;
+﻿using Helpers;
+using Attributes;
+using Entities;
+using Enums;
+using Handlers.NKEWatteco.Helpers;
 
-namespace PayloadTranslator.Handlers.NKEWatteco
+namespace Handlers.NKEWatteco
 {
     [Sensor(DeviceTypes.SMARTPLUG, "SMARTPLUG;INTENSO")]
     public class WattecoHandler : Handler, IHandler

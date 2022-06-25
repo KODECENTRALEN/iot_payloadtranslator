@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PayloadTranslator.Attributes;
+namespace Attributes;
 
 public class DeviceAttributeContainer
 {

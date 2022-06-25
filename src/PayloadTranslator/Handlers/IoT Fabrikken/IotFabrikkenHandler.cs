@@ -1,13 +1,13 @@
 ﻿using System;
 using Bluefragments.Utilities.Extensions;
 using Newtonsoft.Json;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers.IotFabrikken.Entities;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Handlers.IotFabrikken.Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers.IotFabrikken
+namespace Handlers.IotFabrikken
 {
     [Sensor(DeviceTypes.IOTFABRIKKEN, "dtmi:iotplatform:iotFabrikken3fk;1", "xxxxxxxxxx")]
     public class IotFabrikkenHandler : Handler, IHandler

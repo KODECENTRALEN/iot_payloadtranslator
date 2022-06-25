@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers.Ranch_Systems.Entities;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Handlers.Ranch_Systems.Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers.Ranch_Systems
+namespace Handlers.Ranch_Systems
 {
     [Sensor(DeviceTypes.RS130)]
     public class RS130Handler : Handler, IHandler

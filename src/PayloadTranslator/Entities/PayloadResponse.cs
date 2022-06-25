@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace PayloadTranslator.Entities
+namespace Entities
 {
     public class PayloadResponse
     {

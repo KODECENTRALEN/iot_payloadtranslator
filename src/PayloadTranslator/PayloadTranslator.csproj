@@ -22,11 +22,6 @@
     <PackageReference Include="Bluefragments.Utilities" Version="5.0.100" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj" />
-    <ProjectReference Include="..\Utilities\Utilities.csproj" />
-  </ItemGroup>
   
   <PropertyGroup>
     <PackageId>IotNorden.PayloadTranslator</PackageId>

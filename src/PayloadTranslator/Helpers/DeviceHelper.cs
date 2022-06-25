@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers;
+using Attributes;
+using Entities;
+using Handlers;
 using Utilities;
 
-namespace PayloadTranslator.Helpers;
+namespace Helpers;
 
 public static class DeviceHelper
 {

@@ -1,11 +1,11 @@
-﻿using System;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers.Sensative.Helpers;
-using Data.Enums;
+﻿using Enums;
+using Helpers;
+using Attributes;
+using Entities;
+using Enums;
+using Handlers.Sensative.Helpers;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.SENSATIVESTRIPS)]
     public class SensativeStripsHandler : Handler, IHandler

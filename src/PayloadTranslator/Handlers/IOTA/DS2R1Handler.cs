@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using Bluefragments.Utilities.Extensions;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.DS2R1, "dtmi:iotplatform:iotaDs2r126p;1", "DS2R1")]
     public class DS2R1Handler : Handler, IHandler

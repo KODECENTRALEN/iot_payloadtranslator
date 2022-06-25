@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Bluefragments.Utilities.Extensions;
-using Newtonsoft.Json.Linq;
-using PayloadTranslator.Entities;
-using Utilities;
+﻿using Entities;
 
-namespace PayloadTranslator.Handlers;
+namespace Handlers;
 
 public abstract class Handler
 {

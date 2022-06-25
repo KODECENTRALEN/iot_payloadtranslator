@@ -1,7 +1,7 @@
 ﻿using System;
 using Bluefragments.Utilities.Extensions;
 
-namespace PayloadTranslator.Handlers.Robeau.Helpers
+namespace Handlers.Robeau.Helpers
 {
     public static class RobeauValueConverter
     {

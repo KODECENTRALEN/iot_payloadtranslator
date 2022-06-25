@@ -1,11 +1,11 @@
 ﻿using System;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers.Decentlab.Helpers;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Handlers.Decentlab.Helpers;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.DL_PM)]
     public class DL_PM_Handler : Handler, IHandler

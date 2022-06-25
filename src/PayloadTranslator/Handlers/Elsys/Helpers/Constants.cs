@@ -1,4 +1,4 @@
-﻿namespace PayloadTranslator.Handlers.Sensors
+﻿namespace Handlers.Sensors
 {
     /// <summary>
     /// This class contains constant types for the <see cref="ElsysPayloadDecoder" />.

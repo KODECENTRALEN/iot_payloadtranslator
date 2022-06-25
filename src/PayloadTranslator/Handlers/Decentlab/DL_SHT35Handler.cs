@@ -1,12 +1,12 @@
 ﻿using System;
 using Helpers;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers.Decentlab.Helpers;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Handlers.Decentlab.Helpers;
+using Enums;
 
-namespace PayloadTranslator.Handlers.Decentlab
+namespace Handlers.Decentlab
 {
     [Sensor(DeviceTypes.DL_SHT35)]
     public class DL_SHT35Handler : Handler, IHandler

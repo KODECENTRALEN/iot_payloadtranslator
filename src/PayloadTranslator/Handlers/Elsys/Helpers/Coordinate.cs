@@ -1,4 +1,4 @@
-﻿namespace PayloadTranslator.Handlers.Sensors
+﻿namespace Handlers.Sensors
 {
     /// <summary>
     ///     This class contains the GPS coordinate attributes of the <see cref="MessageResult" />.

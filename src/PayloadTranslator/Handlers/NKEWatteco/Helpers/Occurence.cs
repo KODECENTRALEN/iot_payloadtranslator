@@ -1,4 +1,4 @@
-﻿namespace PayloadTranslator.Handlers.NKEWatteco.Helpers
+﻿namespace Handlers.NKEWatteco.Helpers
 {
     public class Occurence
     {

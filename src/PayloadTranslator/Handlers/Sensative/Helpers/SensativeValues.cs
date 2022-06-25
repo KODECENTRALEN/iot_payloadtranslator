@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayloadTranslator.Handlers.Sensative.Helpers
+namespace Handlers.Sensative.Helpers
 {
     public class SensativeValues
     {

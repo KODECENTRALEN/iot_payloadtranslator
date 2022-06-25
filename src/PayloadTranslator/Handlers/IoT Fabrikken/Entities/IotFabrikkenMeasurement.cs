@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace PayloadTranslator.Handlers.IotFabrikken.Entities
+namespace Handlers.IotFabrikken.Entities
 {
     public class IotFabrikkenMeasurement
     {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PayloadTranslator.Handlers.Ranch_Systems.Entities
+namespace Handlers.Ranch_Systems.Entities
 {
     public class RSMeasurement
     {

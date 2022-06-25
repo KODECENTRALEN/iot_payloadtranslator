@@ -1,4 +1,4 @@
-﻿namespace PayloadTranslator.Handlers.Sensors
+﻿namespace Handlers.Sensors
 {
     /// <summary>
     ///     The result decoded from the decoder.

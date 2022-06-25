@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PayloadTranslator.Entities;
+namespace Entities;
 
 public static class PropertyNames
 {

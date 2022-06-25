@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace PayloadTranslator.Handlers.Decentlab.Helpers
+namespace Handlers.Decentlab.Helpers
 {
     public class DL_PM_Decoder
     {

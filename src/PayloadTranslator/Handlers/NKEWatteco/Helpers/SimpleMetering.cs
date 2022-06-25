@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayloadTranslator.Handlers.NKEWatteco.Helpers
+namespace Handlers.NKEWatteco.Helpers
 {
     public class SimpleMetering
     {

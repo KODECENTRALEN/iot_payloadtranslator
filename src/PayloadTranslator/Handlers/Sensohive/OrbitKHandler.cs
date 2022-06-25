@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Globalization;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.ORBITK)]
     public class OrbitKHandler : Handler, IHandler

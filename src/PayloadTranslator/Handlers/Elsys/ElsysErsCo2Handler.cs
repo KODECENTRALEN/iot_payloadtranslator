@@ -1,9 +1,9 @@
-﻿using Data.Enums;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Enums;
+﻿using Enums;
+using Attributes;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.ERSCO2, "dtmi:generic:generic;1", "ERSCO2")]
     public class ElsysErsCo2Handler : Handler, IHandler

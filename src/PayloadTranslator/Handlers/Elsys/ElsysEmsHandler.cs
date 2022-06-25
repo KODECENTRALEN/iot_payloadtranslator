@@ -1,10 +1,10 @@
-﻿using Data.Enums;
+﻿using Enums;
 using Helpers;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Enums;
+using Attributes;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.EMS, "dtmi:generic:generic;1", "ems")]
     public class ElsysEmsHandler : Handler, IHandler

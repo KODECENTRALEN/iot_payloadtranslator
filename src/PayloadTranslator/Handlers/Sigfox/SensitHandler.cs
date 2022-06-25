@@ -2,12 +2,12 @@
 using System.Globalization;
 using System.Linq;
 using Bluefragments.Utilities.Extensions;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.sensit, "dtmi:iotplatform:sigfoxSensit211r7;1", "sensit")]
     public class SensitHandler : Handler, IHandler

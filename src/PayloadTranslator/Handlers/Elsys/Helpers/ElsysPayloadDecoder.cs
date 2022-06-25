@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using PayloadTranslator.Handlers.Sensors;
+using Handlers.Sensors;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     /// <summary>
     /// https://www.elsys.se/en/elsys-payload.

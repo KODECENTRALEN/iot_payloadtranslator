@@ -1,9 +1,9 @@
-﻿using Data.Enums;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Enums;
+﻿using Enums;
+using Attributes;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.ULTRASONIC, "dtmi:generic:generic;1", "ULTRASONIC")]
     public class ElsysUltrasonicHandler : Handler, IHandler

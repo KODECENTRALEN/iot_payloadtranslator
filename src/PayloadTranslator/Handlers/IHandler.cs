@@ -1,7 +1,7 @@
-﻿using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
+﻿using Enums;
+using Entities;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     public interface IHandler
     {

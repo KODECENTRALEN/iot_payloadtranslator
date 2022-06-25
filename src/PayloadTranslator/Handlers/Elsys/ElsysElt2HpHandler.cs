@@ -1,9 +1,9 @@
-﻿using Data.Enums;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Enums;
+﻿using Enums;
+using Attributes;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers.Elsys
+namespace Handlers.Elsys
 {
     [Sensor(DeviceTypes.ELT_HP_HP, "dtmi:generic:generic;1", "ELT-HP-HP")]
     public class ElsysElt2HpHandler : Handler, IHandler

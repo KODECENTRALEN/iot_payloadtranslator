@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 using Bluefragments.Utilities.Extensions;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
+using Attributes;
+using Enums;
 using Helpers;
-using PayloadTranslator.Entities;
-using Data.Enums;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.AIRWITSR3)]
     public class AirwitsR3Handler : Handler, IHandler

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using Bluefragments.Utilities.Extensions;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using Data.Enums;
+using Attributes;
+using Enums;
+using Entities;
+using Enums;
 
-namespace PayloadTranslator.Handlers
+namespace Handlers
 {
     [Sensor(DeviceTypes.MAXBOTIX)]
     public class MaxbotixLoRaWANHandler : Handler, IHandler

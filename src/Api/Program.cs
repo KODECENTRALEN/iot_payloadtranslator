@@ -1,9 +1,9 @@
 ﻿using Bluefragments.Utilities.Extensions;
 using Newtonsoft.Json;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers;
-using PayloadTranslator.Helpers;
+using Attributes;
+using Entities;
+using Handlers;
+using Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 

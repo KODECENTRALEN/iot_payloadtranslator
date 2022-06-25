@@ -1,7 +1,7 @@
 ﻿using System;
-using PayloadTranslator.Enums;
+using Enums;
 
-namespace PayloadTranslator.Attributes;
+namespace Attributes;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class SensorAttribute : Attribute

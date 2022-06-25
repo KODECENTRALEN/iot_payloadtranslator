@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 
-namespace PayloadTranslator.Extensions;
+namespace Extensions;
 
 public static class EnumExtensions
 {

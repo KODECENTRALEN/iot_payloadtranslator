@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Bluefragments.Utilities.Extensions;
-using PayloadTranslator.Attributes;
-using PayloadTranslator.Enums;
-using PayloadTranslator.Entities;
-using PayloadTranslator.Handlers.Robeau.Helpers;
-using Data.Enums;
+﻿using Bluefragments.Utilities.Extensions;
+using Enums;
+using Helpers;
+using Attributes;
+using Entities;
+using Enums;
+using Handlers.Robeau.Helpers;
 
-namespace PayloadTranslator.Handlers.Robeau
+namespace Handlers.Robeau
 {
     [Sensor(DeviceTypes.ROBEAU)]
     public class RobeauVolumeterHandler : Handler, IHandler

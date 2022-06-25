@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace PayloadTranslator.Handlers.Decentlab.Helpers
+namespace Handlers.Decentlab.Helpers
 {
     //// Copied from https://github.com/decentlab/decentlab-decoders
     public class DL_WRM_Decoder

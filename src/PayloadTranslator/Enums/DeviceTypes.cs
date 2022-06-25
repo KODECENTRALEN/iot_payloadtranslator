@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace PayloadTranslator.Enums;
+namespace Enums;
 
 public enum DeviceTypes
 {
