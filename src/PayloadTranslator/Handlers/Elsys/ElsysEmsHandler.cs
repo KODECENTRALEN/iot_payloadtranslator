@@ -19,7 +19,6 @@ namespace Handlers
             {
                 var result = Decoder.DecodePayload(request.Data);
 
-
                 if (result.ExternalTemperature1 != null)
                 {
                     var temperatureRoad = result.ExternalTemperature1.Value;
@@ -51,6 +50,16 @@ namespace Handlers
                     var bat = request.Battery * 100 / 254;
                     var battery = Math.Round((double)bat, 2);
                     response.Measurements.Add(MeasumrentType.battery_pct.ToString(), battery);
+                }
+
+                if (result.Digital1Input > 0)
+                {
+                    response.Measurements.Add(MeasumrentType.door_open.ToString(), 1);
+                }
+
+                if (result.Digital2Input > 0)
+                {
+                    response.Measurements.Add(MeasumrentType.door_close.ToString(), 1);
                 }
             }
             catch (Exception ex)
